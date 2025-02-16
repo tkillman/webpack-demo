@@ -12,5 +12,16 @@
     "32": "images/fruits_32.png",
     "48": "images/fruits_48.png",
     "128": "images/fruits_128.png"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content_script.bundle.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.bundle.js"
   }
 }

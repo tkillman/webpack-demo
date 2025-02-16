@@ -1,0 +1,82 @@
+# api-samples
+
+- action
+  - 아이콘 및 텍스트 설정
+- alert
+  - 알림 설정
+- bookmarks
+  - 즐겨찾기 등 설정
+- browsingData
+  - 캐시 삭제 설정
+- contentSettings
+  - 권한허용 설정
+- contextMenus
+  - 마우스 오른쪽 메뉴 설정
+- cookie-clearer
+  - 쿠키 설정
+- debuggger
+  - 네트워크 확인
+- declarativeNetRequest
+  - 요청 확인
+- default_command_override
+  - 단축키 변경
+- devtools
+  - 개발툴
+- favicon
+  - 파미콘 제어
+- fontSettings
+  - 폰트 변경
+- history
+  - 이력
+- idle
+  - 유휴상태확인
+- il8n
+  - 다국어 지원
+- nativeMessaging
+  - 윈도우 프로그램과 통신
+- omnibox
+  - 주소창 커스터마이징
+- override
+  - 새탭 제어
+- power
+  - 시스템 전원제어
+- printing
+  - 프린터제어
+- privacy
+  - 개인정보
+- readingList
+  - 읽음목록
+- richNotification
+  - 윈도우 알림
+- sandbox
+  - iframe으로 제어
+- scripting
+  - 스크립트 주입
+- storage
+  - 저장소 세팅
+- tabCapture
+  - 탭화면 저장
+- tabs
+  - 탭 제어
+- topSites
+  - 많이 방문한 사이트
+- userScripts
+  - 스크립트 주입
+- web-accessible-resources
+  - 리소스 접근
+- webNavigation
+  - 웹사이트 이동
+- webRequest
+  - 웹요청제어
+- windows
+  - 웹 윈도우 제어
+
+# functional-samples
+
+- ai.gemini-in-the-cloud
+  - ai 사용?
+- ai.gemini-on-device
+  - ai 사용?
+- ai.gemini-on-device-summarization
+  - ai 사용?
+- cookbook.file_handlers

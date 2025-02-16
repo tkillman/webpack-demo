@@ -2,7 +2,14 @@ import Button from "../components/ButtonComponent";
 
 const App = () => {
   const onClickButton = () => {
-    window.open("https://www.google.com", "_blank", "width=600,height=600");
+    const popupUrl = chrome.runtime.getURL("popup.html");
+
+    chrome.windows.create({
+      url: popupUrl,
+      type: "popup",
+      width: 600,
+      height: 600,
+    });
   };
 
   return (
