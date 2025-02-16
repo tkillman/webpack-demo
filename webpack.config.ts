@@ -3,8 +3,8 @@ import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import CompressionPlugin from "compression-webpack-plugin";
+// import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+// import CompressionPlugin from "compression-webpack-plugin";
 
 // `devServer`를 설정할 때 typescript 오류가 발생하는 경우를 대비하여
 import "webpack-dev-server";
@@ -12,11 +12,11 @@ import "webpack-dev-server";
 const config: webpack.Configuration = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   devtool: "cheap-source-map",
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
+  // performance: {
+  //   hints: false,
+  //   maxEntrypointSize: 512000,
+  //   maxAssetSize: 512000,
+  // },
   entry: {
     initPopup: "./src/initPopup/index.tsx",
     popup: "./src/popup/index.tsx",
@@ -26,7 +26,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
-    chunkFilename: "[id].chunk.js", // 동적 로드된 파일명 지정
+    //chunkFilename: "[id].chunk.js", // 동적 로드된 파일명 지정
     clean: true,
   },
   resolve: {
@@ -56,9 +56,9 @@ const config: webpack.Configuration = {
     devMiddleware: {
       writeToDisk: true,
     },
-    historyApiFallback: {
-      index: "initPopup.html",
-    }, // 열면 localhost:9000번으로도 화면 확인 가능
+    // historyApiFallback: {
+    //   index: "initPopup.html",
+    // }, // 열면 localhost:9000번으로도 화면 확인 가능
   },
   plugins: [
     new CopyPlugin({
@@ -77,10 +77,10 @@ const config: webpack.Configuration = {
       filename: "popup.html",
       chunks: ["popup"], // 이게 없으면 모든 js파일이 다 로드됨
     }),
-    new CompressionPlugin({
-      algorithm: "gzip",
-    }),
-    new BundleAnalyzerPlugin(),
+    // new CompressionPlugin({
+    //   algorithm: "gzip",
+    // }),
+    //new BundleAnalyzerPlugin(),
   ],
   optimization: {
     minimize: true,
