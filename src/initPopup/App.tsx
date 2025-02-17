@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div className="flex flex-col gap-5 bg-red-500 min-w-80">
-      hihi
+      hihi123
       <Button onClick={onClickButton}>버튼팝업</Button>
     </div>
   );

@@ -47,15 +47,18 @@ const config: webpack.Configuration = {
   },
   devServer: {
     allowedHosts: "all", // CORS 에러 해결 content-script.js에서 ws 연결 시 cors 에러발생 없앰
-    static: path.join(__dirname, "dist"),
-    compress: true,
+    hot: false,
+    liveReload: true,
+    //compress: true,
     port: 9000,
-    client: {
-      webSocketURL: "ws://localhost:9000/ws",
-    },
+    // client: {
+    //   webSocketURL: "ws://localhost:9000/ws",
+    // },
+    client: false,
     devMiddleware: {
       writeToDisk: true,
     },
+
     // historyApiFallback: {
     //   index: "initPopup.html",
     // }, // 열면 localhost:9000번으로도 화면 확인 가능
@@ -63,7 +66,10 @@ const config: webpack.Configuration = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "manifest.json", to: "." },
+        {
+          from: "manifest.json",
+          to: ".",
+        },
         { from: "public", to: "." },
       ],
     }),
@@ -71,24 +77,26 @@ const config: webpack.Configuration = {
       template: "initPopup.html",
       filename: "initPopup.html",
       chunks: ["initPopup"], // 이게 없으면 모든 js파일이 다 로드됨
+      cache: false,
     }),
     new HtmlWebpackPlugin({
       template: "popup.html",
       filename: "popup.html",
       chunks: ["popup"], // 이게 없으면 모든 js파일이 다 로드됨
+      cache: false,
     }),
     // new CompressionPlugin({
     //   algorithm: "gzip",
     // }),
     //new BundleAnalyzerPlugin(),
   ],
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
-    splitChunks: {
-      chunks: "all",
-    },
-  },
+  // optimization: {
+  //   minimize: true,
+  //   minimizer: [new TerserPlugin()],
+  //   splitChunks: {
+  //     chunks: "all",
+  //   },
+  // },
 };
 
 export default config;
